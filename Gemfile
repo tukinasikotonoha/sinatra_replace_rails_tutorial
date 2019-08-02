@@ -33,6 +33,21 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# 追加ここから
+gem 'rails_best_practices'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
+gem 'devise'
+gem 'activeadmin'
+gem 'ransack'
+gem 'carrierwave'
+gem 'rmagick'
+
+# devise日本語化
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+# 追加ここまで
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -48,6 +63,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # デバッグ用（追加ここから）
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  # 追加ここまで
 end
 
 group :test do
