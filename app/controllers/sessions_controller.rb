@@ -7,8 +7,16 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       # ユーザーログイン後にユーザー情報のページにリダイレクトする
-      log_in user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      log_in user #app/helpers/sessions_helper.rb のメソッドを呼び出す
+
+      #app/helpers/sessions_helper.rb のメソッドを呼び出す
+      if params[:session][:remember_me] == '1'
+        remember(user) #app/helpers/sessions_helper.rb のメソッドを呼び出す
+      else
+        forget(user) #app/helpers/sessions_helper.rb のメソッドを呼び出す
+      end
+      #上記のif文は下記のように三項演算子 で書くことも可能
+      # params[:session][:remember_me] == '1' ? remember(user) : forget(user) #app/helpers/sessions_helper.rb のメソッドを呼び出す
       redirect_to user
     else
       # エラーメッセージを作成する
