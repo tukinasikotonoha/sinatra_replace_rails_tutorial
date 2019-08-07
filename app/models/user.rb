@@ -13,7 +13,9 @@ class User < ApplicationRecord
   validates :image, presence: true, length: { maximum: 255 }
 
   has_secure_password #パスワードのハッシュ化
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true  #空白スペースなどは設定不可、最低文字数は6文字
+
+  #空白スペースなどは設定不可、最低文字数は6文字、プロフィール編集画面ではパスワード入力なしで更新可能
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # 渡された文字列のハッシュ値を返す（８章の「8.2.4 レイアウトの変更をテストする」でも使う部分)
   def User.digest(string)
