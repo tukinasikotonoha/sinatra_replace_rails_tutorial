@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   before_save { self.email = email.downcase } #email属性を小文字に変換してメールアドレスの一意性を保証する
   # 登録時のバリデーション
-  validates :nickname, presence: true, length: { maximum: 10 }
+  validates :nickname, presence: true, length: { maximum: 20 }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 }, #emailは空白にできない、文字数は255文字まで

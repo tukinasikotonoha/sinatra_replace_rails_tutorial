@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    # binding.pry
   end
 
   def create
@@ -17,7 +18,9 @@ class SessionsController < ApplicationController
       end
       #上記のif文は下記のように三項演算子 で書くことも可能
       # params[:session][:remember_me] == '1' ? remember(user) : forget(user) #app/helpers/sessions_helper.rb のメソッドを呼び出す
-      redirect_to user
+
+      #app/helpers/sessions_helper.rb からメソッド呼び出し （記憶したURL (もしくはデフォルト値) にリダイレクト）
+      redirect_back_or user
     else
       # エラーメッセージを作成する
       flash.now[:danger] = 'email/passwordの入力に誤りがあります'

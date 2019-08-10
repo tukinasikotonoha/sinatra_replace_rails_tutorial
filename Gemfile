@@ -51,6 +51,14 @@ gem 'devise-i18n-views'
 # 8/3追加
 # gem 'bootstrap-sass', '3.3.7'
 
+# 8/8追加
+# サンプルユーザーを大量に追加
+gem 'faker'
+
+# ページネーション
+gem 'will_paginate',           '3.1.7'
+gem 'bootstrap-will_paginate', '1.0.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
